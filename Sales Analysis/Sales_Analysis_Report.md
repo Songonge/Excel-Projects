@@ -7,17 +7,17 @@
 4. [About the Dataset](#About-the-dataset)
 5. [Importing the Dataset to Excel](#Importing-the-Dataset-to-Excel)
 6. [Preparation of the Dataset: Cleaning and Transforming](#Preparation-of-the-Dataset-Cleaning-and-Transforming)
-   * [Removed Duplicates](#Removed-Duplicates)
-   * [Assigned the Correct Data Type to Columns](#Assigned-the-Correct-Data-Type-to-Columns)
-   * [Added a New Column to the Table](#Added-a-New-Column-to-the-Table)
+   * [A. Removed Duplicates](#A-Removed-Duplicates)
+   * [B. Assigned the Correct Data Type to Columns](#B-Assigned-the-Correct-Data-Type-to-Columns)
+   * [C. Added a New Column to the Table](#C-Added-a-New-Column-to-the-Table)
 7. [Data Modeling in Excel](#Data-Modeling-in-Excel)
-   * [Created a Fact Table Named Orders](#Created-Dimension-Tables)
+   * [A. Created a Fact Table Named Orders](#A-Created-Dimension-Tables)
      * [1. The Product Table](#1-The-Product-Table)
      * [2. The Location Table](#2-The-location-Table)
      * [3. The Customer Table](#3-The-Customer-Table)
-   * [Created a Fact Table Named Orders](#Created-a-Fact-Table)
-   * [Adding Data to the Model](#Adding-Data-to-the-Model)
-   * [Building Relationships Between Tables](#Building-Relationships-Between-Tables)
+   * [B. Created a Fact Table Named Orders](#B-Created-a-Fact-Table)
+   * [C. Adding Data to the Model](#C-Adding-Data-to-the-Model)
+   * [D. Building Relationships Between Tables](#D-Building-Relationships-Between-Tables)
 8. [Data Analysis in Excel](#Data-Analysis-in-Excel)
 9. [Data Visualization in Excel](#Data-Visualization-in-Excel)
 10. [Insights from the Data Analysis](#Insights-from-the-Data-Analysis)
@@ -77,12 +77,12 @@ To import the dataset in Excel, the following steps were completed:
 ## Preparation of the Dataset: Cleaning and Transforming
 In Power Query, the following tasks were completed to clean and transform the data.
 
-### Removed Duplicates
+### A. Removed Duplicates
 To remove duplicates in Power Query,  
 * I right-clicked on the little table in the top right corner next to the first column in the dataset.
 * Selected **Remove Duplicates** from the menu.
 
-### Assigned the Correct Data Type to Columns
+### B. Assigned the Correct Data Type to Columns
 After downloading the data and importing it to Excel, I realized that some columns did not have the correct data type.  
 * The Order Date and the Ship Date columns were showing text as data type. So, these two columns were assigned the `DATE` data type. For more details and explanations, watch this YouTube [video](https://www.youtube.com/watch?v=80VimLqID9U&t=17s) that was created by me for that purpose.
 * Changed the data type of the **Postal Code** column from `Whole Number` to `Text`.
@@ -90,7 +90,7 @@ After downloading the data and importing it to Excel, I realized that some colum
 * Changed the data type of the **Discount** column from `Decimal Number` to `Percentage`.
 * Changed the data type of the **Profit** column from `Decimal Number` to `Currency`.
 
-### Added a New Column to the Table
+### C. Added a New Column to the Table
 A calculated column named **Ship Duration** was created using the following in the formula bar.
 ```
 =Duration.Days([Ship Date] - [Order Date])
@@ -102,7 +102,7 @@ The cleaned data contained 9800 rows and 22 columns.
 ## Data Modeling in Excel
 To model the data, a fact table and three dimension tables were created. Then, relationships were built between these tables to form the STAR schema. 
 
-### Created Dimension Tables
+### A. Created Dimension Tables
 Three dimension tables were created. To do this, the original table with cleaned data was duplicated to form three times.  
 
 #### 1. The Product Table
@@ -120,19 +120,19 @@ This table contained all information related to customers. The following columns
 * The Customer ID column was considered the primary key of this table.
 * Duplicates were deleted in the Customer ID column in the Customer table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Customer ID column in both tables.
 
-### Created a Fact Table
+### B. Created a Fact Table
 A fact table named **Orders** was created by duplicating the initial table with cleaned data. The following columns were kept: Row ID, Order ID, Customer ID, Product ID, Postal Code, Order Date, Ship Date, Ship Duration, Ship Mode, Sales, Quantity, Discount, and profit. Other columns were deleted from this table because they already appeared in the dimension tables.  
 Here it should be highlighted that:
 * Row ID was the primary key of this fact table.
 * Order ID, Customer ID, Product ID, and Postal Code were foreign keys from the dimension tables.
 
-### Adding Data to the Model
+### C. Adding Data to the Model
 After the dimension and fact tables were created, each of them was added to the model. To do that, I  
 * Selected the worksheet and clicked on Power Pivot.
 * Clicked on Add to Data Model
 * Performing these steps for each table added the four tables to the data model.
 
-### Building Relationships Between Tables
+### D. Building Relationships Between Tables
 One-to-many relationships were created between the tables as follows.  
 * Between the Product table and the Orders table using the Product ID column.
 * Between the Location table and the Orders table using the Postal Code column.
