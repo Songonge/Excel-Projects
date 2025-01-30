@@ -11,10 +11,15 @@
    * [Assigned the Correct Data Type to Columns](#Assigned-the-Correct-Data-Type-to-Columns)
    * [Added a New Column to the Table](#Added-a-New-Column-to-the-Table)
 7. [Data Modeling in Excel](#Data-Modeling-in-Excel)
+   * [Created a Fact Table Named Orders](#Created-Dimension-Tables)
+     * [1. The Product Table](#1-The-Product-Table)
+     * [2. The Location Table](#2-The-location-Table)
+     * [3. The Customer Table](#3-The-Customer-Table)
+   * [Created a Fact Table Named Orders](#Created-a-Fact-Table)
+   * [Adding Data to the Model](#Adding-Data-to-the-Model)
+   * [Building Relationships Between Tables](#Building-Relationships-Between-Tables)
 8. [Data Analysis in Excel](#Data-Analysis-in-Excel)
-   * [Created DAX Measures for Analysis](#Created-DAX-Measures-for-Analysis)
-   * [Created a Calculated Column](#Created-a-Calculated-Column)
-9. [Data Visualization in Power BI](#Data-Visualization-in-Power-BI)
+9. [Data Visualization in Excel](#Data-Visualization-in-Excel)
 10. [Insights from the Data Analysis](#Insights-from-the-Data-Analysis)
 11. [Recommendations from the Data Analysis](#Recommendations-from-the-Data-Analysis)
 12. [Conclusion](#Conclusion)
@@ -86,142 +91,140 @@ After downloading the data and importing it to Excel, I realized that some colum
 * Changed the data type of the **Profit** column from `Decimal Number` to `Currency`.
 
 ### Added a New Column to the Table
-A new column named **Ship Duration** was created using the following in the formula bar.
+A calculated column named **Ship Duration** was created using the following in the formula bar.
 ```
 =Duration.Days([Ship Date] - [Order Date])
 ```
 This column was necessary to determine the duration of each customer's order.
 
+The cleaned data contained 9800 rows and 22 columns.
+
 ## Data Modeling in Excel
+To model the data, a fact table and three dimension tables were created. Then, relationships were built between these tables to form the STAR schema. 
 
+### Created Dimension Tables
+Three dimension tables were created. To do this, the original table with cleaned data was duplicated to form three times.  
 
-## Data Analysis in Excel
+#### 1. The Product Table
+This table contained all information related to products. The following columns were kept while others were deleted: Product ID, Category, Sub-Category, and Product Name.  
+* The Product ID column was considered the primary key of this table.
+* Duplicates were deleted in the Product ID column in the Product table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Product ID column in both tables.
 
+#### 2. The Location Table
+This table contained all information related to locations. The following columns were kept while others were deleted: Postal Code, Country, City, State, and Region.  
+* The Postal Code column was considered the primary key of this table.
+* Duplicates were deleted in the Postal Code column in the Location table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Postal code column in both tables.
 
-2. **Created a Calculated Column**  
-* Risk Classification based on Credit Amount
-```
-Risk Category =  IF(Project1[CreditAmount] > 5000, "High Risk", "Low Risk")
-```
+#### 3. The Customer Table
+This table contained all information related to customers. The following columns were kept while others were deleted: Customer ID, Customer Name, and Segment.  
+* The Customer ID column was considered the primary key of this table.
+* Duplicates were deleted in the Customer ID column in the Customer table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Customer ID column in both tables.
 
-## Data Visualization in Power BI
-* Created Bar charts to showcase the credit amount by purpose and by checking and saving accounts.
-* Created Line charts to showcase the credit amount by duration, age and risk category, and age and sex.
-* Created donut charts to showcase the credit amount by risk category and housing.
-* Created donut charts to showcase the percentage of good vs. bad credit risk.
-* Used cards to show the total credit amount, average credit amount, total number of people who applied for credit, the average age, and the average credit duration. 
-* Used slicers for sex, housing, credit risk, and risk categories to make the dashboard interactive.
+### Created a Fact Table
+A fact table named **Orders** was created by duplicating the initial table with cleaned data. The following columns were kept: Row ID, Order ID, Customer ID, Product ID, Postal Code, Order Date, Ship Date, Ship Duration, Ship Mode, Sales, Quantity, Discount, and profit. Other columns were deleted from this table because they already appeared in the dimension tables.  
+Here it should be highlighted that:
+* Row ID was the primary key of this fact table.
+* Order ID, Customer ID, Product ID, and Postal Code were foreign keys from the dimension tables.
 
+### Adding Data to the Model
+After the dimension and fact tables were created, each of them was added to the model. To do that, I  
+* Selected the worksheet and clicked on Power Pivot.
+* Clicked on Add to Data Model
+* Performing these steps for each table added the four tables to the data model.
+
+### Building Relationships Between Tables
+One-to-many relationships were created between the tables as follows.  
+* Between the Product table and the Orders table using the Product ID column.
+* Between the Location table and the Orders table using the Postal Code column.
+* Between the Customer table and the Orders table using the Customer ID column.
+
+The figure below shows the relationships created between tables.
 <figure>
-  <img src="https://github.com/Songonge/Data-Analytics-Projects/blob/main/All%20Projects/Credit%20Scoring/Dashboard.png" width=100% height=100% alt="alt text">
-  <figcaption>Figure: Credit Scoring Analysis Dashboard</figcaption>
+  <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Sales%20Analysis%20Dashboard.png" width=100% height=100% alt="alt text">
+  <figcaption>Figure: Relationships between tables using the STAR schema</figcaption>
 </figure>
 <br/><br/>
 
-Here is the [Link to the Interactive Dashboard](https://app.powerbi.com/groups/me/reports/25b71013-82ea-423e-b684-e57c5b89c366?ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&pbi_source=linkShare).
+## Data Analysis in Excel
+The analysis was conducted using various Excel functions and tools, including:
+* Pivot tables for aggregating and summarizing data.
+* SUMIF and COUNTIF functions to extract specific insights.
+* Data filtering and sorting for trend identification.
+* Lookup functions for customer and product analysis.
+
+
+## Data Visualization in Excel
+To support the analysis, the following visualizations were created to convey numbers in visuals and to communicate insights from the analysis:
+* **Bar charts** to display revenue by:  
+  * Category
+  * Sub-category
+  * Region
+  * Segment
+  * Top five states
+  * Top five product  
+
+* **Line charts** for sales and profit trends over time  
+* Cards to display KPIs from the data such as:  
+  * Total Customers 
+  * Total Revenue
+  * Total Profit
+  * Total Quantity
+  * Profit Margin  
+
+* **Slicers** to filter data contained in Pivot tables such as
+  * Year
+  * Ship Mode
+  * Ship Duration
+
+The following figure shows the dashboard that was built after analyzing the data.
+
+<figure>
+  <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Sales%20Analysis%20Dashboard.png" width=100% height=100% alt="alt text">
+  <figcaption>Figure: Sales Analysis Dashboard</figcaption>
+</figure>
+<br/><br/>
+
+<!-- Here is the [Link to the Interactive Dashboard](https://app.powerbi.com/groups/me/reports/25b71013-82ea-423e-b684-e57c5b89c366?ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&pbi_source=linkShare). -->
  
 ## Insights from the Data Analysis
-1. **Total Credit Distribution by Purpose**  
-   * *Observation*: The majority of credit was issued for cars ($1.05M), followed by radio/TV ($609K) and furniture/equipment ($541K). 
-   * *Insight*: These top three loan purposes make up a significant share of the total credit portfolio. Education loans and repairs contribute very little comparatively. The least credit was for domestic appliances.
+From the analysis, the following insights were derived:
 
-2. **Credit Risk Analysis**  
-   * *Observation*:
-     * Good Risk accounts for 60.8%, while Bad Risk makes up 39.2% of the credit issued.
-     * High Risk (55.1%) slightly outweighs Low Risk (44.9%), indicating moderate portfolio risk.
-   * *Insight*: Despite a majority of "good risk" borrowers, a significant proportion of loans are in the "bad risk" category, requiring further risk management strategies.
+1. **Product with Highest Revenue**  
+   * The Canon ImageCLASS 2200 Advanced Copier generated the most revenue.  
 
-3. **Savings and Checking Accounts vs. Credit Amount**  
-   * *Observation*:
-     * Borrowers with little savings accounts took the highest credit amount ($2.03M), followed by those with moderate savings ($543K).
-     * Similarly, borrowers with little checking accounts account for the largest credit amount ($1.42M).
-   * *Insight*: Borrowers with minimal financial reserves (savings or checking) are receiving the majority of the loans, which could lead to a higher default risk.
-4. **Credit by Age and Duration**  
-   * *Observation*:
-     * Credit amounts are concentrated among borrowers aged 20–40 years.
-     * Loan durations vary widely, with peaks around 20-40 months.
-   * *Insight*: The age group 20–40 is highly active in borrowing. Longer durations could lead to repayment challenges for certain risk categories.
-5. **Housing Status and Credit Distribution**  
-   * *Observation*:
-     * Borrowers who own housing account for the largest share of the credit ($1.94M), followed by those renting ($494K) and those with free housing ($452K).
-   * *Insight*: Housing ownership correlates with a higher credit share, which may indicate a lower default likelihood compared to renters.
+2. **Revenue by Region**  
+   * The West region had the highest revenue among all regions.  
+
+3. **Top 5 Customers by Revenue**  
+   * Sean Miller
+   * Tamara Chand
+   * Raymond Buch
+   * Tom Ashbrook
+   * Adrian Barton
+
+4. **Most Sought-After Products**  
+   * *Category*: Technology  
+   * *Subcategory*: Phones  
+
+5. **Customer Segment with Most Customers**  
+   * The Consumer segment had the highest number of customers.
+
+6. **Sales and Profit Trends**  
+   * _Sales_: November had the highest sales, while February had the lowest.  
+   * _Profit_: December had the highest profit, while January had the lowest.
 
 ## Recommendations from the Data Analysis
-1. **Strengthen Risk Management for High-Risk Borrowers**    
-   * Implement stricter risk evaluation criteria for borrowers with little savings and checking accounts, as they dominate the loan portfolio but may struggle with repayments.  
-2. **Focus on Diversifying Loan Purpose**  
-   * Reduce overreliance on car loans by incentivizing loans for purposes like education or business that offer long-term societal and economic benefits.
-3.	**Segment by Age and Duration**  
-   * For the 20-40 age group, offer shorter-duration loan products to reduce repayment risks.  
-   * Monitor repayment patterns on loans exceeding 40 months.
-4.	**Encourage Savings Accounts**  
-   * Promote savings-linked loans, where borrowers must demonstrate financial reserves before taking loans. This will improve borrower resilience and motivate the repayment within delays.
-5.	**Housing and Credit Policy**  
-   * For renters and those with "free housing," introduce additional collateral requirements or pre-approval processes to mitigate risk.
-6.	**Enhanced Monitoring of 'Bad Risk' Loans**  
-   * Use predictive analytics to identify early warning signals for borrowers categorized as "bad risk" and implement intervention strategies (e.g., repayment reminders, and restructuring options).
+Based on the insights, the following recommendations are suggested:  
+1. Invest in High-Revenue Products: Increase stock and marketing efforts for high-performing products like the Canon ImageCLASS 2200 Advanced Copier.  
+2. Regional Strategy Optimization: Focus on expanding sales efforts in high-revenue regions like the West.
+3. Customer Retention: Develop loyalty programs targeting the top customers to maintain and increase their spending.
+4. Stock Management: Ensure sufficient inventory for high-demand categories such as Technology and Phones.
+5. Seasonal Promotions: Implement targeted promotions in months with lower sales (February) and leverage high-performing months (November, December) with special offers.
+6. Profit Maximization: Analyze why profit margins were lower in January and optimize pricing strategies accordingly.
 
 ## Conclusion
-The dashboard reveals that a large portion of loans are issued to younger borrowers (20–40 years old) with minimal financial reserves and are concentrated in car-related purposes. While most borrowers fall under the "good risk" category, a significant proportion are still high-risk borrowers.
-To improve credit portfolio stability:  
-* Diversify loan purposes,
-* Implement risk-based loan policies,
-* Encourage savings-linked borrowing practices.  
-By addressing these areas, the organization can better manage credit risk and optimize loan performance for long-term sustainability.
+This project provided a comprehensive analysis of the Superstore dataset using Excel. By leveraging data cleaning, analysis, and visualization techniques, key insights into sales trends, customer behavior, and product performance were uncovered. Implementing the recommended strategies can drive business growth and profitability in the future.
 
-
-
-
-
-<!-- The project involved the analysis of a sales dataset from different states in the United States. Excel was used as the Tool and the following tasks were completed throughout the project:
-
-📌 Downloading the dataset from Kaggle
-
-📌 Data Cleaning using Power Query 
--> Removed duplicates and blanks
--> Assigned the correct data type to each column
--> Created new columns where necessary, etc.
-
-📌 Data Modeling
--> Created fact and dimension tables
--> Built relationships between tables to form the STAR schema. 
-
-📌 Data Analysis
--> Created Pivot tables to get the most out of the data and summarize information in the tables.
-
-📌 Data Visualization
--> Created charts from Pivot tables to convey numbers into visuals to communicate insights from the analysis.
--> Created slicers to filter data contained in Pivot tables.
--> Built an interactive dashboard to show all information in one place (See the attached video).
-
-
-From the analysis and building of the dashboard, the following were addressed:
-
-📌 Identifying products with the highest revenues 
--> Canon ImageCLASS 2200 Advanced Copier
-
-📌 Determining revenue by regions
--> The Western region of the US was the one with the maximum revenues
-
-📌 Identifying the top 5 customers by revenue
--> Sean Miller, Tamara Chand, Raymond Buch, Tom Ashbrook, and Adrian Barton
-
-📌 Determining the most sorted products
--> Technology as a Category and Phones as a Subcategory
-
-📌 Identifying the segment with the largest number of customers 
--> Consumer
-
-📌 Explaining the trend by sales and profit
--> Sales: November had more sales while February had fewer sales. 
--> Profit: January had less profit while December had more profit.
-
-📌 KPIs
--> Total revenue: $2,261,537
--> Total Profit: $278,979
--> Total products: 37143
--> Total customers: 9800
--> Profit Margin: 12.34%  -->
 
 <br/>
    
