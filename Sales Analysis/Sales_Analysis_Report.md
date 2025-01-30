@@ -140,7 +140,7 @@ One-to-many relationships were created between the tables as follows.
 
 The figure below shows the relationships created between tables.
 <figure>
-  <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Sales%20Analysis%20Dashboard.png" width=100% height=100% alt="alt text">
+  <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Relationship_Star_Schema.png" width=100% height=100% alt="alt text">
   <figcaption>Figure: Relationships between tables using the STAR schema</figcaption>
 </figure>
 <br/><br/>
