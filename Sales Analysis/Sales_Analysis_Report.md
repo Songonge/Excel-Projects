@@ -215,12 +215,18 @@ From the analysis, the following insights were derived:
 
 ## Recommendations from the Data Analysis
 Based on the insights, the following recommendations are suggested:  
-1. Invest in High-Revenue Products: Increase stock and marketing efforts for high-performing products like the Canon ImageCLASS 2200 Advanced Copier.  
-2. Regional Strategy Optimization: Focus on expanding sales efforts in high-revenue regions like the West.
-3. Customer Retention: Develop loyalty programs targeting the top customers to maintain and increase their spending.
-4. Stock Management: Ensure sufficient inventory for high-demand categories such as Technology and Phones.
-5. Seasonal Promotions: Implement targeted promotions in months with lower sales (February) and leverage high-performing months (November, December) with special offers.
-6. Profit Maximization: Analyze why profit margins were lower in January and optimize pricing strategies accordingly.
+1. Invest in High-Revenue Products  
+   * Increase stock and marketing efforts for high-performing products like the Canon ImageCLASS 2200 Advanced Copier.  
+2. Regional Strategy Optimization  
+   * Focus on expanding sales efforts in high-revenue regions like the West.  
+3. Customer Retention
+   * Develop loyalty programs targeting the top customers to maintain and increase their spending.  
+4. Stock Management
+   * Ensure sufficient inventory for high-demand categories such as Technology and Phones.  
+5. Seasonal Promotions
+   * Implement targeted promotions in months with lower sales (February) and leverage high-performing months (November, December) with special offers.
+6. Profit Maximization
+   * Analyze why profit margins were lower in January and optimize pricing strategies accordingly.
 
 ## Conclusion
 This project provided a comprehensive analysis of the Superstore dataset using Excel. By leveraging data cleaning, analysis, and visualization techniques, key insights into sales trends, customer behavior, and product performance were uncovered. Implementing the recommended strategies can drive business growth and profitability in the future.
