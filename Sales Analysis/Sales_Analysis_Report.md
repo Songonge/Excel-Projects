@@ -1,6 +1,6 @@
 # Project: Analyzing Sales from Different States in the United States
 
-## Table of Content
+## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Description](#project-description)
 3. [Project Aim](#project-aim)
@@ -25,7 +25,7 @@
 12. [Conclusion](#Conclusion)
 
 ## Introduction
-The purpose of this report is to provide an in-depth analysis of the Superstore dataset, downloaded from Kaggle, using Excel. The dataset contained entries from different states and different cities in the United States. The project involved data cleaning, exploratory data analysis, visualization, and deriving insights to aid decision-making. 
+The purpose of this report is to provide an in-depth analysis of the Superstore dataset, downloaded from Kaggle, using Excel. The dataset contained entries from different states and different cities in the United States. The project involved data cleaning, exploratory data analysis, data visualization, and deriving insights to support decision-making. 
 
 ## Project Description
 This project focused on analyzing sales performance, customer segmentation, and product trends for a Superstore business. The dataset contained sales transactions across various regions, customer segments, product categories, and subcategories.
@@ -67,7 +67,7 @@ The columns in the dataset are described as follows:
 * *Profit*: Profit/Loss incurred
 
 ## Importing the Dataset to Excel
-To import the dataset in Excel, the following steps were completed:  
+To import the dataset into Excel, the following steps were completed:  
 * Downloaded the dataset from Kaggle as a **.csv** file.
 * Launched an empty Excel workbook.
 * Clicked on **Data** -> **Get Data** -> selected **From File** -> **From Text/CSV**.
@@ -83,8 +83,8 @@ To remove duplicates in Power Query,
 * Selected **Remove Duplicates** from the menu.
 
 ### B. Assigned the Correct Data Type to Columns
-After downloading the data and importing it to Excel, I realized that some columns did not have the correct data type.  
-* The Order Date and the Ship Date columns were showing text as data type. So, these two columns were assigned the `DATE` data type. For more details and explanations, watch this YouTube [video](https://www.youtube.com/watch?v=80VimLqID9U&t=17s) that was created by me for that purpose.
+After downloading the data and importing it into Excel, I realized that some columns did not have the correct data type.  
+* The Order Date and the Ship Date columns were showing text as a data type. So, these two columns were assigned the `DATE` data type. For more details and explanations, watch this YouTube [video](https://www.youtube.com/watch?v=80VimLqID9U&t=17s) that was created by me for that purpose.
 * Changed the data type of the **Postal Code** column from `Whole Number` to `Text`.
 * Changed the data type of the **Sales** column from `Decimal Number` to `Currency`.
 * Changed the data type of the **Discount** column from `Decimal Number` to `Percentage`.
@@ -103,26 +103,26 @@ The cleaned data contained 9800 rows and 22 columns.
 To model the data, a fact table and three dimension tables were created. Then, relationships were built between these tables to form the STAR schema. 
 
 ### A. Created Dimension Tables
-Three dimension tables were created. To do this, the original table with cleaned data was duplicated to form three times.  
+Three-dimensional tables were created. To do this, the original table with cleaned data was duplicated to form three times.  
 
 #### 1. The Product Table
 This table contained all information related to products. The following columns were kept while others were deleted: Product ID, Category, Sub-Category, and Product Name.  
 * The Product ID column was considered the primary key of this table.
-* Duplicates were deleted in the Product ID column in the Product table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Product ID column in both tables.
+* Duplicates were deleted in the Product ID column in the Product table to keep unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Product ID column in both tables.
 
 #### 2. The Location Table
 This table contained all information related to locations. The following columns were kept while others were deleted: Postal Code, Country, City, State, and Region.  
 * The Postal Code column was considered the primary key of this table.
-* Duplicates were deleted in the Postal Code column in the Location table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Postal code column in both tables.
+* Duplicates were deleted in the Postal Code column in the Location table to keep unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Postal code column in both tables.
 
 #### 3. The Customer Table
 This table contained all information related to customers. The following columns were kept while others were deleted: Customer ID, Customer Name, and Segment.  
 * The Customer ID column was considered the primary key of this table.
-* Duplicates were deleted in the Customer ID column in the Customer table to keep only unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Customer ID column in both tables.
+* Duplicates were deleted in the Customer ID column in the Customer table to keep unique values. This was to ensure an effective one-to-many relationship with the Orders table using the Customer ID column in both tables.
 
 ### B. Created a Fact Table
 A fact table named **Orders** was created by duplicating the initial table with cleaned data. The following columns were kept: Row ID, Order ID, Customer ID, Product ID, Postal Code, Order Date, Ship Date, Ship Duration, Ship Mode, Sales, Quantity, Discount, and profit. Other columns were deleted from this table because they already appeared in the dimension tables.  
-Here it should be highlighted that:
+Here, it should be highlighted that:
 * Row ID was the primary key of this fact table.
 * Order ID, Customer ID, Product ID, and Postal Code were foreign keys from the dimension tables.
 
@@ -161,17 +161,17 @@ To support the analysis, the following visualizations were created to convey num
   * Region
   * Segment
   * Top five states
-  * Top five product  
+  * Top five products  
 
 * **Line charts** for sales and profit trends over time  
-* Cards to display KPIs from the data such as:  
+* Cards to display KPIs from the data, such as:  
   * Total Customers 
   * Total Revenue
   * Total Profit
   * Total Quantity
   * Profit Margin  
 
-* **Slicers** to filter data contained in Pivot tables such as
+* **Slicers** to filter data contained in Pivot tables, such as
   * Year
   * Ship Mode
   * Ship Duration
