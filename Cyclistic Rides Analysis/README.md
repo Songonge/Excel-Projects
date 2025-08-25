@@ -80,7 +80,7 @@ I chose **Excel** to clean the data because it is easy to use and the dataset is
 *	The raw data were transformed and changed into a standard data format suitable for analysis, storage, and easy use.
 
 ## Data Analysis and Visualization
-* The following calculations were performed in individual files first such as:
+* The following calculations were performed in individual files first, such as:
   ```
   Mean of ride_length: =AVERAGE(D2:D32767)
   ```
@@ -101,14 +101,14 @@ I chose **Excel** to clean the data because it is easy to use and the dataset is
   * I calculated the `average ride_length` for users by `day_of_week` by adding `day_of_week` under `Columns`, `member_casual` under `Rows`, and `Average` of `ride_length` under `Values`
   * I calculated the `number of rides` for users by `day_of_week` by adding `Count of ride_id` to `Values`.
 
-* Performing these descriptive analysis steps helped make some initial observations such as the day with the most rides is `Thursday`. The table below was designed to show the difference between casual riders and members.
+* Performing these descriptive analysis steps helped make some initial observations, such as the day with the most rides is `Thursday`. The table below was designed to show the difference between casual riders and members.
 
 |      Calculations     |      Casual Riders    | Members |
 | :-------------: | :-------------: | :-------------: |
 | Total Count of Rides   |      5934    | 339423 |
 | Average Ride Length  | 0:37:01	       | 0:13:52   |
 
-  * From the above table, it can be seen that the total number of trips for members was far greater than those for casual riders in the first quarter of 2019.
+  * From the above table, it can be seen that the total number of trips for members was far greater than that for casual riders in the first quarter of 2019.
 
 The following table shows the max and min rides for both rider types.
 
@@ -122,7 +122,7 @@ The following table shows the max and min rides for both rider types.
 ## Share
 * I was able to answer the question of how annual members and casual riders use Cyclistic bikes differently. The analysis helped me see that many riders have memberships. In addition, the ride length for casual riders was longer than that of members.
 * The story that my data tells is that for the first quarter of 2019, the data tells that the maximum number of rides is on Thursday for members and Saturday for casual riders. Looking at Table 4, we can say that the number of rides decreased from January to February and then considerably increased from February to March 2019.
-* Data visualization given by the Dashboard in Figure 1 helped me communicate and share my findings. This is because it provides details and directly shows the summary of data in charts, graphs, and figures which are easy to understand.
+* The data visualization given by the Dashboard in Figure 1 helped me communicate and share my findings. This is because it provides details and directly shows the summary of data in charts, graphs, and figures, which are easy to understand.
 * Supporting visualizations and key findings
 
 In the following table, I display the total number of daily rides for each rider type.
@@ -139,16 +139,18 @@ In the following table, I display the total number of daily rides for each rider
 
 After completing the data analysis, a dashboard was designed to clearly communicate the insights. That is shown below.
 
+| Figure: Cyclistic Rides Analysis Dashboard |
+| :------------: |
 <figure>
   <img src="https://github.com/Songonge/Excel-Projects/blob/main/Cyclistic%20Rides%20Analysis/Cyclistic%20Ride%20Analysis%20Dashboard.png" width=100% height=100% alt="alt text">
-  <figcaption>Figure: Cyclistic Rides Analysis Dashboard</figcaption>
+<!--   <figcaption>Figure: Cyclistic Rides Analysis Dashboard</figcaption> -->
 </figure>
-<br/><br/>
+<!-- <br/><br/> -->
 
 ## Act
 Now that I have finished creating my visualizations, I can act on my findings. The three top recommendations based on my analysis are: 
-* Based on my analysis, my conclusion is that the number of rides for member riders is greater than that of casual riders. Therefore, for casual riders to become members, the company can add some promotions on the membership enrollment.
-* The majority of riders are adults in the age range of 30 and 50. Therefore, the marketing team can create even where to invite people with other age ranges. This will be a motivation to obtain more customers.
+* Based on my analysis, my conclusion is that the number of rides for member riders is greater than that of casual riders. Therefore, for casual riders to become members, the company can add some promotions to the membership enrollment.
+* The majority of riders are adults in the age range of 30 and 50. Therefore, the marketing team can create events to invite people of other age ranges. This will be a motivation to obtain more customers.
 * The day of the week with maximum rides is Saturday for casual riders. Therefore, this day can be used to reach out to these riders and talk to them about the benefits of membership.
 
 ![Cyclistic Ride Analysis Interactive Dashboard.mp4](https://github.com/user-attachments/assets/2acc1b7f-d49e-4c22-b842-0466dd4a2dae)
