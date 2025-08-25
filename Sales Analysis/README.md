@@ -138,12 +138,13 @@ One-to-many relationships were created between the tables as follows.
 * Between the Location table and the Orders table using the Postal Code column.
 * Between the Customer table and the Orders table using the Customer ID column.
 
-The figure below shows the relationships created between tables.
+| Figure: Relationships between tables using the STAR schema |
+| :------------: |
 <figure>
   <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Relationship_Star_Schema.png" width=100% height=100% alt="alt text">
-  <figcaption>Figure: Relationships between tables using the STAR schema</figcaption>
+<!--   <figcaption>Figure: Relationships between tables using the STAR schema</figcaption> -->
 </figure>
-<br/><br/>
+<!-- <br/><br/> -->
 
 ## Data Analysis in Excel
 The analysis was conducted using various Excel functions and tools, including:
@@ -178,11 +179,13 @@ To support the analysis, the following visualizations were created to convey num
 
 The following figure shows the dashboard that was built after analyzing the data.
 
+| Figure: Sales Analysis Dashboard |
+| :------------: |
 <figure>
   <img src="https://github.com/Songonge/Excel-Projects/blob/main/Sales%20Analysis/Sales%20Analysis%20Dashboard.png" width=100% height=100% alt="alt text">
-  <figcaption>Figure: Sales Analysis Dashboard</figcaption>
+<!--   <figcaption>Figure: Sales Analysis Dashboard</figcaption> -->
 </figure>
-<br/><br/>
+<!-- <br/><br/> -->
 
 <!-- Here is the [Link to the Interactive Dashboard](https://app.powerbi.com/groups/me/reports/25b71013-82ea-423e-b684-e57c5b89c366?ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&pbi_source=linkShare). -->
  
