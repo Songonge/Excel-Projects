@@ -20,7 +20,7 @@
 This project provides a profound learning experience in data analytics by utilizing real-world data from Netflix to assess content from 2008 to 2021. Through Excel, I construct a dynamic and interactive dashboard designed for sophisticated reporting. This task involves leveraging both intermediate and advanced Excel functions to interpret complex data sets effectively. Completing this project enriched my analytical skills, enhancing my ability to navigate and make sense of intricate data landscapes.
 
 ## Business Overview or Problem
-Netflix has been providing content to its customers. It has over 8000 movies or TV shows available on its platform, and as of mid-2021, they have over 200M Subscribers globally. The key obstacles the company encounters include:
+Netflix has been providing content to its customers. It has over 8000 movies or TV shows available on its platform, and as of mid-2021, they have over 200 million subscribers globally. The key obstacles the company encounters include:
 1. **Limited Data Analysis**: The lack of data analysis tools hinders the company's ability to gain insights into customer preferences and country trends.
 2. **Resource Allocation**: Netflix struggles to allocate resources efficiently in each country, leading to customer dissatisfaction.
 
@@ -42,9 +42,9 @@ The project aims to achieve the following specific objectives:
 3.	Carry out basic data analysis and dashboard utilization to enhance decision-making capabilities.
  
 ## Data Description
-This dataset consists of listings of all the movies and TV shows available on Netflix from 2008 to 2021, along with details such as cast, directors, ratings, release year, duration, etc. The dataset contains 10 columns and 8791 rows described as follows:
+This dataset consists of listings of all the movies and TV shows available on Netflix from 2008 to 2021, along with details such as cast, directors, ratings, release year, duration, etc. The dataset contains 10 columns and 8791 rows, described as follows:
 *	*ShowID*: The ID number of the show made of the letter “s” and a number.
-*	*Type*: The type of content such as “Movie” or “TV Show”
+*	*Type*: The type of content, such as “Movie” or “TV Show”
 *	*Title*: The title of the “Movie” or “TV Show”
 *	*Director*: Director of the content “Movie” or “TV Show”
 *	*Country*: The country where the “Movie” or “TV Show” is provided
@@ -83,14 +83,16 @@ To clean the data, I will
 ### Data Analysis and Visualization
 The analysis was performed in Excel. To do so,  
 *	I created Pivot tables using data from each field. This helped me summarize data by category and obtain simple tables that will be used to create visuals. 
-*	I created several charts such as Bar charts, Line charts, a pie chart, a Map, and Stacked Bar charts.
+*	I created several charts, such as Bar charts, Line charts, a pie chart, a Map, and Stacked Bar charts.
 *	After creating all the charts, I combined them in a dashboard as shown in Figure 1.
 
+| Figure: Netflix Content Analysis Dashboard |
+| :------------: |
 <figure>
   <img src="https://github.com/Songonge/Excel-Projects/blob/main/Netflix%20Content%20Analysis/Nextflix%20Dashboard.png" width=100% height=100% alt="alt text">
-  <figcaption>Figure: Netflix Content Analysis Dashboard</figcaption>
+<!--   <figcaption>Figure: Netflix Content Analysis Dashboard</figcaption> -->
 </figure>
-<br/><br/>
+<!-- <br/><br/> -->
 
 ## Data Interpretation
 1. **Content Type Distribution**: Movies dominate Netflix's library, comprising nearly 70% of the content, while TV shows make up the remaining 30%. This indicates a significant emphasis on movie content.
