@@ -2,7 +2,7 @@
 ----
 
 ## Project Overview
-This project analyzes customer income and spending behaviors using a dataset containing demographic information (dim_customers) and financial transactions (fact_spends). The entire workflow, from data cleaning to insight generation and dashboard creation, was completed in **Microsoft Excel**.
+This project, completed in **Excel**, analyzes customer income and spending behaviors using a dataset containing demographic information (dim_customers) and financial transactions (fact_spends). The entire workflow, from data cleaning to insight generation and dashboard creation, was completed in **Microsoft Excel**.
 
 The goal was to analyze how spending patterns differ among customers from various income brackets. Then, answer key business questions about customer demographics, income, and spending patterns across categories, payment methods, cities, and occupations.
 
@@ -32,5 +32,42 @@ This table contained `86400` rows and `5` columns described as follows:
   * _Category_: Spend category (Electronics, Apparel, Entertainment, Food, etc.).
   * _PaymentType_: Mode of payment (Debit Card, Credit Card, UPI, Net Banking).
   * _Spend_: Total amount spent.
+
+
+## Methodology in Excel
+
+### Part 1: Data Cleaning
+The data cleaning tasks were completed in **Power Query**. The following tasks were completed:  
+* Handled inconsistent naming.
+* Assigned the correct data type to columns where necessary.
+* Added a conditional column called _CustomAge_ as follows:
+```
+if  AgeInterval equals 21-24 then 23
+if  AgeInterval equals 25-34 then 30
+if  AgeInterval equals 35-45 then 40
+else 50
+```
+* Created the AgeGroup column using the AgeInterval column as follows:
+```
+21-24: Young Adult
+25-34: Adult
+35-45: Middle-Age
+45+: Senior
+```
+* Created the MonthNo column using the Month column. This was used later to sort the Month column.
+* Transformed the month column entries to only keep the first three characters of the month name. This will allow aesthetic the name on the trend chart.
+* Checked for missing values and duplicates. No missing or duplicate values were found.
+
+### Part 2: Data Modeling
+* Created a _One-to-Many_ relationship between dim_customers and fact_spends using the CustomerID column in both tables
+* Sorted the month column by the MonthNo column 
+
+
+### Part 3: Data Analysis
+
+
+### Part 4: Data Visualization and Dashboarding
+Designed slicers for filtering Age Group and Marital Status
+
 
 
