@@ -84,21 +84,21 @@ I chose **Excel** to clean the data because it is easy to use and the dataset is
   ```
   Mean of ride_length: =AVERAGE(D2:D32767)
   ```
-  This gave `0:14:55`
+  This gave `0:14:55`.
   
   ```Max of ride_length: =MAX(D2:D32767)
   ```
-  This gave `232:09:59`
+  This gave `232:09:59`.
   
 
   ```
   Mode of day_of_week: =MODE(E2:E32767)
   ```
-  This gave `5`
+  This gave `5`.
      
 * A pivot table was created to quickly calculate and visualize the data.
   * I calculated the `average ride_length` for members and casual riders by adding `member_casual` under `Rows` and `ride_length` under `Values` and selecting `Average` from the `Values Field Settings`.
-  * I calculated the `average ride_length` for users by `day_of_week` by adding `day_of_week` under `Columns`, `member_casual` under `Rows`, and `Average` of `ride_length` under `Values`
+  * I calculated the `average ride_length` for users by `day_of_week` by adding `day_of_week` under `Columns`, `member_casual` under `Rows`, and `Average` of `ride_length` under `Values`.
   * I calculated the `number of rides` for users by `day_of_week` by adding `Count of ride_id` to `Values`.
 
 * Performing these descriptive analysis steps helped make some initial observations, such as the day with the most rides is `Thursday`. The table below was designed to show the difference between casual riders and members.
@@ -150,7 +150,7 @@ After completing the data analysis, a dashboard was designed to clearly communic
 ## Act
 Now that I have finished creating my visualizations, I can act on my findings. The three top recommendations based on my analysis are: 
 * Based on my analysis, my conclusion is that the number of rides for member riders is greater than that of casual riders. Therefore, for casual riders to become members, the company can add some promotions to the membership enrollment.
-* The majority of riders are adults in the age range of 30 and 50. Therefore, the marketing team can create events to invite people of other age ranges. This will be a motivation to obtain more customers.
+* The majority of riders are adults in the age range of 30 to 50. Therefore, the marketing team can create events to invite people of other age ranges. This will be a motivation to obtain more customers.
 * The day of the week with maximum rides is Saturday for casual riders. Therefore, this day can be used to reach out to these riders and talk to them about the benefits of membership.
 
 ![Cyclistic Ride Analysis Interactive Dashboard.mp4](https://github.com/user-attachments/assets/2acc1b7f-d49e-4c22-b842-0466dd4a2dae)
